@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Ghibli Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Ghibli Regular"), url("/fonts/ghibli/Ghibli.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Ghibli Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Ghibli Bold"),
+    url("/fonts/ghibli/Ghibli-Bold.woff") format("woff");
+}
