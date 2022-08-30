@@ -7,13 +7,11 @@
     "start": "remix-serve build"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.9",
-    "@chakra-ui/react": "^2.3.0",
-    "@chakra-ui/theme-tools": "^2.0.11",
-    "@emotion/cache": "^11.10.3",
-    "@emotion/react": "^11.10.0",
+    "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
+    "@mantine/core": "^5.2.4",
+    "@mantine/hooks": "^5.2.4",
+    "@mantine/remix": "^5.2.4",
     "@remix-run/node": "^1.7.0",
     "@remix-run/react": "^1.7.0",
     "@remix-run/serve": "^1.7.0",
