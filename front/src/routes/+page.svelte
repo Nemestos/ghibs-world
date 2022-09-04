@@ -1,4 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p class="bg-black">
-	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<script>
+	import CardGrid from 'src/components/ui/card-grid.svelte';
+</script>
+
+<CardGrid />
