@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply dark:bg-primary-800 bg-primary-300 font-ghibli;
+	}
+
+	a {
+		@apply text-xl text-secondary-600 hover:text-secondary-900 scale-transition;
+	}
+}
+
+@layer components {
+	.primary-btn {
+		@apply rounded px-5 py-2.5 overflow-hidden  bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 scale-transition;
+	}
+
+	.primary-btn-hover {
+		@apply absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12;
+	}
+	.danger {
+		@apply p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800;
+	}
+}
+
+@layer utilities {
+	.scale-transition {
+		@apply transition ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300;
+	}
+}
+@font-face {
+	font-family: 'Ghibli Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Ghibli Regular'), url('/fonts/Ghibli.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Ghibli Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Ghibli Bold'), url('fonts/Ghibli-Bold.woff') format('woff');
+}
