@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,svelte,ts}"],
+  content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        ghibli: ["Ghibli"],
+        ghibli: ["Ghibli Regular"],
         "ghibli-bold": ["Ghibli Bold"],
       },
       colors: {
