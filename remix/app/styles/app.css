@@ -685,6 +685,16 @@ a:hover {
   margin-right: auto;
 }
 
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.-mx-1 {
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -719,6 +729,11 @@ a:hover {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .font-ghibli-bold {
@@ -787,5 +802,17 @@ a:hover {
 @media (min-width: 768px) {
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:-mx-4 {
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 }
