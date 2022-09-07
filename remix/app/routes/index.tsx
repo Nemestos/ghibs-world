@@ -1,5 +1,5 @@
-import Header from "~/components/layouts/Header";
+import BaseLayout from "~/components/layouts/BaseLayout";
 
 export default function Index() {
-  return <Header />;
+  return <BaseLayout></BaseLayout>;
 }
