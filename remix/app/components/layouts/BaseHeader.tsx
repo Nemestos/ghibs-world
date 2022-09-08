@@ -34,7 +34,6 @@ export default function BaseHeader({
           <Burger
             opened={opened}
             onClick={onClickBurger}
-            size="sm"
             color={theme.colors.secondary[6]}
             mr="xl"
           />
@@ -44,8 +43,16 @@ export default function BaseHeader({
             <NavLinks />
           </Box>{" "}
         </div>
-        <MainLogo />
-        <ThemeToggle />
+        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+          <div>
+            <MainLogo />
+          </div>
+        </MediaQuery>
+        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+          <div>
+            <ThemeToggle />
+          </div>
+        </MediaQuery>
       </Group>
     </Header>
   );
