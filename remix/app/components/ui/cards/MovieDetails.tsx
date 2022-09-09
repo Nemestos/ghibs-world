@@ -42,7 +42,7 @@ function MovieDetailsOverlay({ movie }: { movie: IMovie }) {
         >
           <Image src={movie.image} radius="lg" width={256} />
           <Stack>
-            <Title>{movie.title}</Title>
+            <Title variant="gradient">{movie.title}</Title>
             <Title weight={"bold"}>
               {movie.original_title}/{movie.original_title_romanised}
             </Title>

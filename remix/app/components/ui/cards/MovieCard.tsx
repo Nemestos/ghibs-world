@@ -31,7 +31,7 @@ export default function MovieCard({ movie }: { movie: IMovie }) {
         <Stack justify="center" align="center">
           <Text>{movie.original_title_romanised}</Text>
           <Text>-</Text>
-          <Text>{movie.original_title}</Text>
+          <Text variant="gradient">{movie.title}</Text>
         </Stack>
         <Link to={`/movies/${movie.id}`}>
           <Button variant="gradient">View details</Button>

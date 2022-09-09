@@ -19,7 +19,9 @@ export default function CharactersPage() {
     <CardGrid
       data={characters}
       keyExtractor={(item) => item.id}
+      searchExtractor={(item) => item.name}
       render={(item) => <CharacterCard character={item} />}
+      canSearch
     ></CardGrid>
   );
 }

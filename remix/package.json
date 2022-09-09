@@ -3,7 +3,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "start": "remix start"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
