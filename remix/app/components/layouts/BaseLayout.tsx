@@ -26,9 +26,7 @@ export default function BaseLayout({ children }: { children?: ReactNode }) {
 
   return (
     <AppShell
-      fixed
-      navbarOffsetBreakpoint="sm"
-      navbar={<BaseNavbar opened={opened} className={classes.navbar} />}
+      // navbar={<BaseNavbar opened={opened} className={classes.navbar} />}
       header={
         <BaseHeader
           onClickBurger={onClickBurger}
@@ -37,7 +35,7 @@ export default function BaseLayout({ children }: { children?: ReactNode }) {
         />
       }
     >
-      <Outlet />
+      {children}
     </AppShell>
   );
 }

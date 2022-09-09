@@ -2,15 +2,11 @@ import {
   Header,
   MediaQuery,
   Burger,
-  createStyles,
-  Text,
   useMantineTheme,
   Group,
-  Button,
   Box,
 } from "@mantine/core";
 
-import { useState } from "react";
 import MainLogo from "~/components/ui/MainLogo";
 import ThemeToggle from "../ui/ThemeToggle";
 import NavLinks from "./NavLinks";
@@ -28,7 +24,7 @@ export default function BaseHeader({
   const theme = useMantineTheme();
 
   return (
-    <Header height="auto" p="md">
+    <Header height={200} p="md">
       <Group align="center" style={{ justifyContent: "space-between" }} grow>
         <MediaQuery largerThan="sm" styles={{ display: "none" }}>
           <Burger

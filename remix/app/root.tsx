@@ -18,6 +18,7 @@ import { ghibliTheme } from "./lib/mantine/theme";
 import styles from "./styles/app.css";
 import { CustomFonts } from "./lib/mantine/fonts";
 import { useLocalStorage } from "@mantine/hooks";
+import BaseLayout from "./components/layouts/BaseLayout";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -59,7 +60,9 @@ export default function App() {
             <CustomFonts />
           </head>
           <body>
-            <Outlet />
+            <BaseLayout>
+              <Outlet />
+            </BaseLayout>
             <ScrollRestoration />
             <Scripts />
             <LiveReload />
