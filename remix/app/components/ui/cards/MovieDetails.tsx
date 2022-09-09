@@ -2,22 +2,28 @@ import {
   BackgroundImage,
   Box,
   Center,
-  Group,
   Image,
-  Overlay,
   Stack,
   Title,
   Text,
   useMantineTheme,
-  AspectRatio,
-  Container,
   Paper,
   MediaQuery,
 } from "@mantine/core";
+import { useColor } from "color-thief-react";
+import { useEffect } from "react";
 import type { IMovie } from "~/types";
 import Rating from "../Rating";
 
 function MovieDetailsOverlay({ movie }: { movie: IMovie }) {
+  const theme = useMantineTheme();
+  const { data, loading, error } = useColor(movie.image, "hex", {
+    crossOrigin: "same-origin",
+  });
+
+  useEffect(() => {
+    console.log(loading, data);
+  }, [loading]);
   return (
     <MediaQuery smallerThan={"md"} styles={{ flexDirection: "row" }}>
       <Center
@@ -29,7 +35,11 @@ function MovieDetailsOverlay({ movie }: { movie: IMovie }) {
           alignItems: "center",
         }}
       >
-        <Paper shadow="xs" p="md" sx={{ display: "flex", gap: 128 }}>
+        <Paper
+          shadow="xs"
+          p="md"
+          sx={{ display: "flex", gap: 128, backgroundColor: data }}
+        >
           <Image src={movie.image} radius="lg" width={256} />
           <Stack>
             <Title>{movie.title}</Title>

@@ -10,7 +10,7 @@ export default function Rating({ rating, maxStar, max }: RatingProps) {
   return (
     <Group spacing={"xl"}>
       {[...Array(maxStar)].map((e, i) =>
-        i < localRating ? <AiFillStar /> : <AiOutlineStar />
+        i < localRating ? <AiFillStar key={i} /> : <AiOutlineStar key={i} />
       )}
       <Text>
         {rating}/{max}
