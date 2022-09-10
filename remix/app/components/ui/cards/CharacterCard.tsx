@@ -1,4 +1,6 @@
-import { Badge, Card, Group, Image, Text } from "@mantine/core";
+import { ActionIcon, Badge, Card, Group, Image, Text } from "@mantine/core";
+import { Link } from "@remix-run/react";
+import { BiMovie } from "react-icons/bi";
 import type { ICharacter } from "~/types";
 
 export default function CharacterCard({
@@ -29,6 +31,12 @@ export default function CharacterCard({
         <Badge color={character.hair_color.toLowerCase()}>Hairs</Badge>
         <Badge color={character.eye_color}>Eyes</Badge>
       </Group>
+
+      <Link to={`/characters/${character.id}/movies`}>
+        <ActionIcon>
+          <BiMovie />
+        </ActionIcon>
+      </Link>
     </Card>
   );
 }

@@ -19,6 +19,15 @@ export async function fetchCharactersFromMovie(movieId: string) {
   return filtered;
 }
 
+export async function fetchMovieFromCharacter(characterId: string) {
+  const character = fetchGhibliCharacterById(characterId);
+  const filmRequests = (await character).films.map((filmUrl) =>
+    ghibliClient.get<IMovie>(filmUrl)
+  );
+  const filmsResps = await Promise.all(filmRequests);
+  return filmsResps.map((resp) => resp.data);
+}
+
 export async function fetchGhibliMovies(): Promise<IMovie[]> {
   const movies = await ghibliClient.get<IMovie[]>("/films");
   return movies.data;
