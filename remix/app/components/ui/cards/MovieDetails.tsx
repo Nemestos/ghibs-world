@@ -9,7 +9,9 @@ import {
   useMantineTheme,
   Paper,
   MediaQuery,
+  Button,
 } from "@mantine/core";
+import { Link } from "@remix-run/react";
 import { useColor } from "color-thief-react";
 import { useEffect } from "react";
 import type { IMovie } from "~/types";
@@ -17,28 +19,25 @@ import Rating from "../Rating";
 
 function MovieDetailsOverlay({ movie }: { movie: IMovie }) {
   const theme = useMantineTheme();
-  const { data, loading, error } = useColor(movie.image, "hex", {
-    crossOrigin: "same-origin",
-  });
 
-  useEffect(() => {
-    console.log(loading, data);
-  }, [loading]);
   return (
-    <MediaQuery smallerThan={"md"} styles={{ flexDirection: "row" }}>
-      <Center
-        sx={{
-          padding: 128,
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <Center
+      sx={{
+        padding: 128,
+        height: "100%",
+      }}
+    >
+      <MediaQuery smallerThan={"lg"} styles={{ flexDirection: "column" }}>
         <Paper
           shadow="xs"
           p="md"
-          sx={{ display: "flex", gap: 128, backgroundColor: data }}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+
+            gap: 128,
+          }}
         >
           <Image src={movie.image} radius="lg" width={256} />
           <Stack>
@@ -49,10 +48,13 @@ function MovieDetailsOverlay({ movie }: { movie: IMovie }) {
             <Title italic>{movie.release_date}</Title>
             <Rating rating={movie.rt_score} maxStar={5} max={100} />
             <Text>{movie.description}</Text>
+            <Link to={"characters"}>
+              <Button variant="gradient">Characters</Button>
+            </Link>
           </Stack>
         </Paper>
-      </Center>
-    </MediaQuery>
+      </MediaQuery>
+    </Center>
   );
 }
 

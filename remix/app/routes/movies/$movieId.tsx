@@ -1,6 +1,6 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json, Response } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { ghibliClient } from "~/clients";
 import MovieDetails from "~/components/ui/cards/MovieDetails";
 import { fetchGhibliMovieById } from "~/services/ghibli.service";
@@ -21,5 +21,10 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export default function CharacterPage() {
   const movie = useLoaderData() as IMovie;
-  return <MovieDetails movie={movie} />;
+  return (
+    <>
+      <MovieDetails movie={movie} />
+      <Outlet />
+    </>
+  );
 }

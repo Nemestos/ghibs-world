@@ -1,10 +1,24 @@
 import { ghibliClient } from "~/clients";
-import { ICharacter, IMovie } from "~/types";
+import type { ICharacter, IMovie } from "~/types";
 
 export async function fetchGhibliCharacters(): Promise<ICharacter[]> {
   const characters = await ghibliClient.get<ICharacter[]>("/people");
   return characters.data;
 }
+export async function fetchGhibliCharacterById(
+  id: string
+): Promise<ICharacter> {
+  const character = await ghibliClient.get<ICharacter>(`/people/${id}`);
+  return character.data;
+}
+export async function fetchCharactersFromMovie(movieId: string) {
+  const characters = await fetchGhibliCharacters();
+  const filtered = characters.filter((character) =>
+    character.films.some((filmUrl) => filmUrl.includes(movieId))
+  );
+  return filtered;
+}
+
 export async function fetchGhibliMovies(): Promise<IMovie[]> {
   const movies = await ghibliClient.get<IMovie[]>("/films");
   return movies.data;

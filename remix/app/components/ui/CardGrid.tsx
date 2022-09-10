@@ -1,4 +1,4 @@
-import { Grid, Stack, TextInput } from "@mantine/core";
+import { Center, Grid, Stack, TextInput, Title } from "@mantine/core";
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 
@@ -30,6 +30,13 @@ export default function CardGrid<T extends unknown>({
       searchExtractor(item).toLowerCase().includes(filterName.toLowerCase())
     );
   };
+  if (data.length === 0) {
+    return (
+      <Center>
+        <Title order={1}>No Data</Title>
+      </Center>
+    );
+  }
 
   return (
     <Stack>
