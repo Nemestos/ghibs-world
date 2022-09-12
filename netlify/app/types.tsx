@@ -29,3 +29,31 @@ export interface ICharacter {
   species: string[];
   url: string[];
 }
+
+export enum Climate {
+  Continental = "Continental",
+  Tropical = "Tropical",
+  Dry = "Dry",
+  Wet = "Wet",
+  Mild = "Mild",
+}
+export enum Terrain {
+  Mountain = "Mountain",
+  Hill = "Hill",
+  Plain = "Plain",
+  Marsh = "Marsh",
+  Forest = "Forest",
+  City = "City",
+  River = "River",
+  Ocean = "Ocean",
+}
+export interface ILocation {
+  id: string;
+  name: string;
+  climate: Climate;
+  terrain: Terrain;
+  surface_water: number;
+  residents: string[];
+  films: string[];
+  url: string;
+}

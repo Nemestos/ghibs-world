@@ -1,5 +1,5 @@
 import { ghibliClient } from "~/clients";
-import type { ICharacter, IMovie } from "~/types";
+import type { ICharacter, ILocation, IMovie } from "~/types";
 
 export async function fetchGhibliCharacters(): Promise<ICharacter[]> {
   const characters = await ghibliClient.get<ICharacter[]>("/people");
@@ -28,6 +28,21 @@ export async function fetchMovieFromCharacter(characterId: string) {
   return filmsResps.map((resp) => resp.data);
 }
 
+export async function fetchResidentsFromLocation(locationId: string) {
+  const location = await fetchGhibliLocationById(locationId);
+  if (!location) {
+    return [];
+  }
+  if (location.residents?.length > 0 && location.residents[0] === "TODO") {
+    return [];
+  }
+  const residentsRequests = location.residents.map((characterUrl) =>
+    ghibliClient.get<ICharacter>(characterUrl)
+  );
+  const residentsResps = await Promise.all(residentsRequests);
+  return residentsResps.map((resp) => resp.data);
+}
+
 export async function fetchGhibliMovies(): Promise<IMovie[]> {
   const movies = await ghibliClient.get<IMovie[]>("/films");
   return movies.data;
@@ -36,4 +51,16 @@ export async function fetchGhibliMovies(): Promise<IMovie[]> {
 export async function fetchGhibliMovieById(id: string): Promise<IMovie | null> {
   const movie = await ghibliClient.get<IMovie>(`/films/${id}`);
   return movie.data;
+}
+
+export async function fetchGhibliLocations(): Promise<ILocation[]> {
+  const locations = await ghibliClient.get<ILocation[]>("/locations");
+  return locations.data;
+}
+
+export async function fetchGhibliLocationById(
+  id: string
+): Promise<ILocation | null> {
+  const location = await ghibliClient.get<ILocation>(`/locations/${id}`);
+  return location.data;
 }

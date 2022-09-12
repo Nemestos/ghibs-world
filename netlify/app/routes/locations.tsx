@@ -2,28 +2,28 @@ import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import CardGrid from "~/components/ui/CardGrid";
-import CharacterCard from "~/components/ui/cards/CharacterCard";
-import { fetchGhibliCharacters } from "~/services/ghibli.service";
+import LocationCard from "~/components/ui/cards/LocationCard";
+import { fetchGhibliLocations } from "~/services/ghibli.service";
 import type { ICharacter } from "~/types";
 
-type LoaderData = Awaited<ReturnType<typeof fetchGhibliCharacters>>;
+type LoaderData = Awaited<ReturnType<typeof fetchGhibliLocations>>;
 
 export const loader: LoaderFunction = async () => {
-  const characters = await fetchGhibliCharacters();
-  return json<LoaderData>(characters);
+  const locations = await fetchGhibliLocations();
+  return json<LoaderData>(locations);
 };
 
 export default function CharactersPage() {
-  const characters = useLoaderData() as ICharacter[];
+  const locations = useLoaderData<LoaderData>();
   return (
     <div>
       <CardGrid
-        data={characters}
+        data={locations}
         keyExtractor={(item) => item.id}
         searchExtractor={(item) => item.name}
-        render={(item) => <CharacterCard character={item} />}
+        render={(item) => <LocationCard location={item} />}
         canSearch
-      ></CardGrid>
+      />
       <Outlet />
     </div>
   );

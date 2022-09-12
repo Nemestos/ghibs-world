@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { NavLink } from "@mantine/core";
 import { Link, useLocation } from "@remix-run/react";
-import { BiHomeCircle, BiMovie } from "react-icons/bi";
+import { BiHomeCircle, BiLocationPlus, BiMovie } from "react-icons/bi";
 import { GiCharacter } from "react-icons/gi";
 
 export default function NavLinks() {
@@ -32,6 +32,13 @@ export default function NavLinks() {
           active={isCurrentLink("/characters")}
           label="Characters"
           icon={<GiCharacter size={16} />}
+        />
+      </Link>
+      <Link to="/locations">
+        <NavLink
+          active={isCurrentLink("/locations")}
+          label="Locations"
+          icon={<BiLocationPlus size={16} />}
         />
       </Link>
     </>
