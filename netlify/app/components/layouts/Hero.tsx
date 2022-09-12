@@ -20,7 +20,7 @@ export default function Hero() {
   const { classes } = useStyles();
   return (
     <Box className={classes.wrapper}>
-      <Overlay opacity={0.5} zIndex={2} color="black" sx={{ height: "100%" }} />
+      <Overlay opacity={0.5} zIndex={3} color="black" sx={{ height: "100%" }} />
       <video
         src="/videos/ghibli.webm"
         loop
